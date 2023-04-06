@@ -1,0 +1,28 @@
+[package]
+name = "protoc-gen-prost-utoipa"
+version = "0.1.0"
+authors = ["Mario Aragones Lozano (maarlo) <mario.aragones.lozano@gmail.com>"]
+description = "Protocol Buffers compiler plugin providing utoipa schemas"
+repository = "https://github.com/maarlo/protoc-gen-prost-utoipa"
+homepage = "https://github.com/maarlo/protoc-gen-prost-utoipa"
+documentation = "https://github.com/maarlo/protoc-gen-prost-utoipa"
+license = "Apache-2.0"
+edition = "2021"
+readme = "README.md"
+keywords = ["protobuf", "serialization", "prost", "utoipa", "OpenAPI"]
+categories = ["encoding"]
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+prutoipa-build = "0.1.4"
+prost-build = { version = "0.11.8", default-features = false }
+prost-types = { version = "0.11.8", default-features = false }
+prost = { version = "0.11.8", default-features = false, features = ["std"] }
+protoc-gen-prost = "0.2.0"
+regex = { version = "1.5.5", default-features = false }
+
+[profile.release]
+codegen-units = 1
+lto = "fat"
+debug = true
